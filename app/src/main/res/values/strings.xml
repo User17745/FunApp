@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TOS</string>
+    <string name="share_button">SHARE</string>
+    <string name="refresh_button">REFRESH</string>
+    <string name="about_button">ABOUT</string>
+    <string name="help_button">HELP</string>
+    <string name="home_button">HOME</string>
+</resources>

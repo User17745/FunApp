@@ -1,0 +1,40 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.sauravarya.TOS.MainActivity">
+
+
+
+
+
+    <item
+        android:id="@+id/menu_item_share"
+        android:title="@string/share_button"
+        android:orderInCategory="2"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/action_refresh"
+        android:title="@string/refresh_button"
+        android:orderInCategory="3"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/action_about"
+        android:title="@string/about_button"
+        android:orderInCategory="4"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/action_bar"
+        android:title="@string/help_button"
+        android:orderInCategory="5"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/action_context_bar"
+        android:title="@string/home_button"
+        android:orderInCategory="1"
+        app:showAsAction="never"
+        />
+</menu>
