@@ -21,14 +21,7 @@ import java.net.InetAddress;
 
 public class MainActivity extends ActionBarActivity {
 
-
-
-
     private WebView mWebView;
-
-
-
-
 
     //enable back press button on the screen
     @Override
@@ -43,11 +36,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-            setContentView(R.layout.activity_main);
-
-
-
+        setContentView(R.layout.activity_main);
 
         mWebView = (WebView) findViewById(R.id.activity_main_webview);
         // Force links and redirects to open in the WebView instead of in a browser
@@ -56,7 +45,12 @@ public class MainActivity extends ActionBarActivity {
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         mWebView.loadUrl("http://rigassembler.com");
-
+        mWebView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                setContentView(R.layout.errorweb);
+            }
+        });
     }
 
     private ShareActionProvider mShareActionProvider;
@@ -66,8 +60,6 @@ public class MainActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-
-
         return true;
     }
 
@@ -83,12 +75,9 @@ public class MainActivity extends ActionBarActivity {
         switch (item.getItemId()) {
             case R.id.menu_item_share:
                 shareURL();
-
-
         }
 
         int id = item.getItemId();
-
 
         //noinspection SimplifiableIfStatement---refresh button
         if (item.getItemId() == R.id.action_refresh) {
@@ -106,8 +95,6 @@ public class MainActivity extends ActionBarActivity {
             mWebView.loadUrl("http://www.rigassembler.com");
         }
         return super.onOptionsItemSelected(item);
-
-
     }
 
     //share link but not working as per need
@@ -119,8 +106,6 @@ public class MainActivity extends ActionBarActivity {
         shareIntent.putExtra(Intent.EXTRA_TEXT, mWebView.getUrl());
         startActivity(Intent.createChooser(shareIntent, "Share Using"));
     }
-
-
 }
 
 
